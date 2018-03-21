@@ -1,0 +1,85 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-image: url("b.jpg");
+            background-size: cover;
+            font-family: cursive;
+            font-size: 23px;
+            text-align: center;
+            padding:10px;
+            margin:10px;
+        }
+
+        footer {
+            position: absolute;
+            bottom:10px;
+            left:90px;            
+            font-weight: bold;
+            font-family: cursive;
+            font-size: 25px;
+        }
+
+        button {
+            background-color: blue;
+            border: 1px black;
+            color: white;
+            font-size: 40px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            width: 300px;
+            padding: 5px;
+            border-radius: 15px;            
+            margin-top:40px;
+        }
+        span{
+            color:red;
+            font-weight: bolder;            
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center; color:blue; ">BMI Calculator</h1>
+    <h3> Please Enter your details to calculate your Body Mass Index!</h2>
+        <p></p>
+        <b>Height(inches):</b> &nbsp;&nbsp;
+        <input type="number" id="h">
+        <p></p>
+        <b>Weight(pounds):</b> &nbsp;
+        <input type="number" id="w">
+        <p></p>
+        <p></p>
+        <button type="button" onclick="myFunction()">Calculate</button>
+
+        <p></p><p></p>
+        <span id="answer"></span>
+
+
+        <footer>&copy; Surbhi Zalpuri 2018</footer>
+        <script src="cordova.js"></script>
+        <script>
+            function myFunction() {
+
+                const h = document.getElementById("h").value;
+                const w = document.getElementById("w").value;
+
+                var bmi = (w * 703) / (h * h);
+
+                if (bmi > 25) {
+                    document.getElementById("answer").innerHTML = "Overweight with BMI:" + bmi;
+                }
+                else if (bmi < 18.5) {
+                    document.getElementById("answer").innerHTML = "Underweight with BMI:" + bmi;  
+                }
+                else {
+                    document.getElementById("answer").innerHTML = "Optimal with BMI:" + bmi;                    
+                }                                
+            }
+        </script>
+</body>
+
+</html>
